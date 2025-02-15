@@ -1,0 +1,91 @@
+{
+  "$schema": "https://schema.kunkun.sh",
+  "name": "kunkun-extension-headless",
+  "version": "0.0.8",
+  "license": "MIT",
+  "type": "module",
+  "kunkun": {
+    "name": "TODO: Extension Display Name",
+    "shortDescription": "A headless Extension Template",
+    "longDescription": "A headless Extension Template",
+    "identifier": "kunkun-extension-headless",
+    "permissions": [
+      "clipboard:write-text",
+      {
+        "permission": "shell:execute",
+        "allow": [
+          {
+            "cmd": {
+              "program": "echo",
+              "args": [
+                "[a-zA-Z0-9\\s]+"
+              ]
+            }
+          }, 
+          {
+            "cmd": {
+              "program": "python",
+              "args": [
+                "-c",
+                ".+"
+              ]
+            }
+          },
+          {
+            "cmd": {
+              "program": "python",
+              "args": [
+                "C:\\\\Programming\\sContent\\\\python-windows-virtual-desktops\\\\.*\\.py"
+              ]
+            }
+          },
+          {
+            "permission": "shell:execute",
+            "allow": [
+              {
+                "cmd": {
+                  "program": "powershell",
+                  "args": [
+                    "-Command",
+                    ".+"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "demoImages": [],
+    "icon": {
+      "type": "iconify",
+      "value": "tabler:code"
+    },
+    "headlessCmds": [
+      {
+        "name": "Template: Headless Command UUID",
+        "main": "dist/index.js",
+        "cmds": []
+      }
+    ]
+  },
+  "scripts": {
+    "dev": "bun build.ts dev",
+    "build": "bun build.ts"
+  },
+  "dependencies": {
+    "@kksh/api": "0.1.3",
+    "i18next": "^23.15.1",
+    "uuid": "^11.0.3"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "./dist",
+    ".gitignore"
+  ]
+}
