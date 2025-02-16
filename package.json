@@ -10,48 +10,17 @@
     "longDescription": "A headless Extension Template",
     "identifier": "kunkun-extension-headless",
     "permissions": [
-      "clipboard:write-text",
       {
         "permission": "shell:execute",
         "allow": [
           {
             "cmd": {
-              "program": "echo",
+              "program": "powershell",
               "args": [
-                "[a-zA-Z0-9\\s]+"
-              ]
-            }
-          }, 
-          {
-            "cmd": {
-              "program": "python",
-              "args": [
-                "-c",
+                "-Command",
                 ".+"
               ]
             }
-          },
-          {
-            "cmd": {
-              "program": "python",
-              "args": [
-                "C:\\\\Programming\\sContent\\\\python-windows-virtual-desktops\\\\.*\\.py"
-              ]
-            }
-          },
-          {
-            "permission": "shell:execute",
-            "allow": [
-              {
-                "cmd": {
-                  "program": "powershell",
-                  "args": [
-                    "-Command",
-                    ".+"
-                  ]
-                }
-              }
-            ]
           }
         ]
       }

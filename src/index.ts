@@ -7,7 +7,7 @@ import {
 } from "@kksh/api/headless";
 import { v4 as uuidv4 } from "uuid";
 
-class UuidExt extends HeadlessCommand {
+/* class UuidExt extends HeadlessCommand {
   async load() {
     try {
       // Create PowerShell script that changes directory and runs Python
@@ -24,9 +24,9 @@ class UuidExt extends HeadlessCommand {
 }
 
 
-expose(new UuidExt());
+expose(new UuidExt()); */
 
-/* class UuidExt extends HeadlessCommand {
+class UuidExt extends HeadlessCommand {
   async load() {
     const uuid = uuidv4();
     return clipboard
@@ -40,7 +40,7 @@ expose(new UuidExt());
   }
 }
 
-expose(new UuidExt()); */
+expose(new UuidExt());
 
 /* import {
   clipboard,
