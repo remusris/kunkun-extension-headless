@@ -1,0 +1,36 @@
+{
+  "version": "4",
+  "specifiers": {
+    "jsr:@kunkun/api@^0.0.52": "0.0.52",
+    "npm:kkrpc@^0.0.13": "0.0.13_typescript@5.7.3"
+  },
+  "jsr": {
+    "@kunkun/api@0.0.52": {
+      "integrity": "29f526def410a2e6f929725a0580cdf7e563a44f3370c83e551a3699a0d32439",
+      "dependencies": [
+        "npm:kkrpc"
+      ]
+    }
+  },
+  "npm": {
+    "kkrpc@0.0.13_typescript@5.7.3": {
+      "integrity": "sha512-66ohRjbw2fLO45L1PMkGTP6KHk/Wa7nKJL6r4U/VCBsY+HoIncEdscSQcUgIdv2Da66/UyIC6UMWMvwIqXCZCg==",
+      "dependencies": [
+        "typescript",
+        "ws"
+      ]
+    },
+    "typescript@5.7.3": {
+      "integrity": "sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw=="
+    },
+    "ws@8.18.0": {
+      "integrity": "sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw=="
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@kunkun/api@^0.0.52",
+      "jsr:@std/assert@1"
+    ]
+  }
+}

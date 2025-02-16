@@ -1,4 +1,69 @@
 import {
+  expose,
+  HeadlessCommand,
+  toast,
+  shell,
+  RPCChannel,
+} from "@kksh/api/headless";
+
+interface PythonAPI {
+  executeScript: () => Promise<string>;
+}
+
+async function getRpcAPI() {
+  const { rpcChannel, process, command } = await shell.createDenoRpcChannel<
+    object,
+    PythonAPI
+  >(
+    "$EXTENSION/deno-src/index.ts",
+    [],
+    {
+      allowRun: true,
+      allowRead: true,
+    },
+    {}
+  );
+
+  command.stderr.on("data", (data) => {
+    console.warn(data);
+    if (data.includes("Error")) {
+      toast.error("Python script execution failed!");
+    }
+  });
+
+  return {
+    api: rpcChannel.getAPI(),
+    rpcChannel,
+    process,
+    command,
+  };
+}
+
+class NotionDesktopExt extends HeadlessCommand {
+  async load() {
+    try {
+      const rpc = await getRpcAPI();
+      const output = await rpc.api.executeScript();
+      console.log(output);
+      toast.success("Python script executed successfully");
+      rpc.process.kill();
+    } catch (err) {
+      toast.error(`Failed to execute Python script: ${err}`);
+      console.error(err);
+    }
+  }
+}
+
+expose(new NotionDesktopExt());
+
+
+
+
+
+
+
+
+/* import {
   clipboard,
   expose,
   HeadlessCommand,
@@ -30,4 +95,4 @@ class UuidExt extends HeadlessCommand {
 
 
 expose(new UuidExt());
-
+ */
