@@ -4,8 +4,13 @@ import {
   HeadlessCommand,
   toast,
   shell,
+  RPCChannel
 } from "@kksh/api/headless";
 import { v4 as uuidv4 } from "uuid";
+
+interface PythonAPI {
+  executeScript: (scriptPath: string) => Promise<void>;
+}
 
 class UuidExt extends HeadlessCommand {
   async load() {
@@ -26,45 +31,3 @@ class UuidExt extends HeadlessCommand {
 
 expose(new UuidExt());
 
-/* class UuidExt extends HeadlessCommand {
-  async load() {
-    const uuid = uuidv4();
-    return clipboard
-      .writeText(uuid)
-      .then(() => {
-        toast.success(`Copied UUID: ${uuid}`);
-      })
-      .catch((err) => {
-        toast.error(`Failed to copy UUID: ${err}`);
-      });
-  }
-}
-
-expose(new UuidExt()); */
-
-/* import {
-  clipboard,
-  expose,
-  HeadlessCommand,
-  toast,
-  shell,
-} from "@kksh/api/headless";
-import { v4 as uuidv4 } from "uuid";
-
-class UuidExt extends HeadlessCommand {
-  async load() {
-    try {
-      const cmd = shell.createCommand("python", [
-        "C:\\Programming Content\\python-windows-virtual-desktops\\other.py",
-      ]);
-      const output = await cmd.execute();
-      console.log(output.stdout);
-      toast.success("Python script executed successfully");
-    } catch (err) {
-      toast.error(`Failed to execute Python script: ${err}`);
-      console.error(err);
-    }
-  }
-}
-
-expose(new UuidExt()); */
