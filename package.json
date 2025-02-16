@@ -5,9 +5,9 @@
   "license": "MIT",
   "type": "module",
   "kunkun": {
-    "name": "TODO: Extension Display Name",
-    "shortDescription": "A headless Extension Template",
-    "longDescription": "A headless Extension Template",
+    "name": "Open Notion on Current Virtual Desktop",
+    "shortDescription": "Open Notion on Current Virtual Desktop",
+    "longDescription": "Open Notion on Current Virtual Desktop",
     "identifier": "kunkun-extension-headless",
     "permissions": [
       {
@@ -32,7 +32,7 @@
     },
     "headlessCmds": [
       {
-        "name": "Template: Headless Command UUID",
+        "name": "Open Notion on Current Virtual Desktop",
         "main": "dist/index.js",
         "cmds": []
       }
